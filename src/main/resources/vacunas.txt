@@ -1,0 +1,1 @@
+{"cui":"1","vaccines":[{"vacuna":"covid dosis 3","fecha":"24/03/2022"},{"vacuna":"covid dosis 3","fecha":"24/03/2022"}]}
