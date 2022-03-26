@@ -1,7 +1,6 @@
 package com.jjms.HashImplementation.main;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.jjms.HashImplementation.impl.Patient;
 import com.jjms.HashImplementation.impl.Vaccine;
 
@@ -67,7 +66,7 @@ public class Main {
             patient.addVaccine(vaccine);
 
             patients.put(cui,patient);
-            saveInFile(patient);
+            saveInFile();
             System.out.println("El Paciente ha sido agregado");
         }
     }
@@ -76,7 +75,7 @@ public class Main {
         for (String clave:patients.keySet()) {
             Patient patient = patients.get(clave);
             System.out.println("Clave: " + patient.getCui());
-            for (Vaccine vaccine:patient.getVaccines()){
+            for (Vaccine vaccine:patient.getVacunas()){
                 System.out.println("Vacuna: "+vaccine.getVacuna()+" - Fecha: "+vaccine.getFecha());
             }
         }
@@ -99,7 +98,7 @@ public class Main {
 
         Patient p = patients.get(cui);
         String pCui = p.getCui();
-        LinkedList<Vaccine> vaccines = p.getVaccines();
+        LinkedList<Vaccine> vaccines = p.getVacunas();
         System.out.println("Cui: "+pCui);
 
         for(Vaccine v: vaccines){
@@ -108,18 +107,21 @@ public class Main {
 
     }
 
-    private static void saveInFile(Patient o){
-        JsonObject jo = gson.toJsonTree(o).getAsJsonObject();
-        String json = jo.toString();
+    private static void saveInFile(){
         try{
+            Gson gson = new Gson();
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(json+"\n");
+            for (String key: patients.keySet()){
+                String json = gson.toJson(patients.get(key));
+                bw.write(json+"\n");
+            }
             bw.close();
         }catch (Exception e){
             e.printStackTrace();
         }
     }
+
 
     private static void loadPatients(){
         try{

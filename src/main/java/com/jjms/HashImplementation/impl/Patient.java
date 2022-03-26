@@ -5,15 +5,15 @@ import java.util.Objects;
 
 public class Patient {
     private String cui;
-    private LinkedList<Vaccine> vaccines;
+    private LinkedList<Vaccine> vacunas;
 
     public Patient(String cui) {
         this.cui = cui;
-        this.vaccines = new LinkedList<>();
+        this.vacunas = new LinkedList<>();
     }
 
     public void addVaccine(Vaccine v){
-        vaccines.add(v);
+        vacunas.add(v);
     }
 
     public String getCui() {
@@ -24,12 +24,12 @@ public class Patient {
         this.cui = cui;
     }
 
-    public LinkedList<Vaccine> getVaccines() {
-        return vaccines;
+    public LinkedList<Vaccine> getVacunas() {
+        return vacunas;
     }
 
-    public void setVaccines(LinkedList<Vaccine> vaccines) {
-        this.vaccines = vaccines;
+    public void setVacunas(LinkedList<Vaccine> vacunas) {
+        this.vacunas = vacunas;
     }
 
     @Override
@@ -37,11 +37,11 @@ public class Patient {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Patient patient = (Patient) o;
-        return Objects.equals(cui, patient.cui) && Objects.equals(vaccines, patient.vaccines);
+        return Objects.equals(cui, patient.cui) && Objects.equals(vacunas, patient.vacunas);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cui, vaccines);
+        return Objects.hash(cui, vacunas);
     }
 }

@@ -1,1 +1,2 @@
-{"cui":"1","vaccines":[{"vacuna":"covid dosis 3","fecha":"24/03/2022"},{"vacuna":"covid dosis 3","fecha":"24/03/2022"}]}
+{"cui":"1","vacunas":[{"vacuna":"covid dosis 1","fecha":"25/03/2022"},{"vacuna":"covid dosis 1","fecha":"25/03/2022"}]}
+{"cui":"2","vacunas":[{"vacuna":"covid dosis 3","fecha":"25/03/2022"},{"vacuna":"covid dosis 3","fecha":"25/03/2022"}]}
