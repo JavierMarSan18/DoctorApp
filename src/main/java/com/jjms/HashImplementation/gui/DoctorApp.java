@@ -275,7 +275,6 @@ public class DoctorApp extends javax.swing.JFrame {
             Gson gson = new Gson();
             Patient patient;
             Scanner sc = new Scanner(file);
-            System.out.println("Cosa");
             while(sc.hasNextLine()){
                 patient = gson.fromJson(sc.nextLine(), Patient.class);
                 patients.put(patient.getCui(),patient);
