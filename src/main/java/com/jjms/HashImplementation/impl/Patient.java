@@ -7,8 +7,7 @@ public class Patient {
     private String cui;
     private LinkedList<Vaccine> vacunas;
 
-    public Patient(String cui) {
-        this.cui = cui;
+    public Patient() {
         this.vacunas = new LinkedList<>();
     }
 

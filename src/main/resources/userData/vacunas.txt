@@ -1,0 +1,2 @@
+{"cui":"0000000000000","vacunas":[{"vacuna":"Covid Dosis 1","fecha":"12/01/2021"}]}
+{"cui":"2121212121212","vacunas":[{"vacuna":"Covid Dosis 1","fecha":"20/12/2010"}]}
