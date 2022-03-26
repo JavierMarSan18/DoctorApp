@@ -62,17 +62,31 @@ public class DoctorApp extends javax.swing.JFrame {
 
         jLabel2.setText("Fecha:");
 
+        txtFecha.setToolTipText("");
         txtFecha.setName("txtFecha"); // NOI18N
+        txtFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaActionPerformed(evt);
+            }
+        });
 
-        cbVacuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Covid Dosis 1", "Covid Dosis 2", "Covid Dosis 3" }));
+        cbVacuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Covid Dosis 1", "Covid Dosis 2", "Covid Dosis 3" }));
 
         jLabel3.setText("Vacuna:");
 
         btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(this::btnBuscarActionPerformed);
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(this::btnRegistrarActionPerformed);
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         tbRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,10 +98,10 @@ public class DoctorApp extends javax.swing.JFrame {
                 "CUI", "Vacuna", "Fecha"
             }
         ) {
-            final Class[] types = new Class [] {
+            Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            final boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean [] {
                 false, false, false
             };
 
@@ -153,8 +167,6 @@ public class DoctorApp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         if(cuiIsValid() && vaccineIsValid() && dateIsValid()){
 
@@ -187,6 +199,10 @@ public class DoctorApp extends javax.swing.JFrame {
         loadTable();
         clean();
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaActionPerformed
         
     
     /**
@@ -300,7 +316,7 @@ public class DoctorApp extends javax.swing.JFrame {
         return true;
     }
 
-
+    //Verifica si se ha ingresado correctamente la fecha en el formulario
     private boolean dateIsValid(){
         String date = txtFecha.getText();
         try {

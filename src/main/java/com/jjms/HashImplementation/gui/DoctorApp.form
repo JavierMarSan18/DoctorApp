@@ -102,14 +102,18 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtFecha">
       <Properties>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="name" type="java.lang.String" value="txtFecha" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbVacuna">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value=" "/>
+            <StringItem index="0" value="Seleccione"/>
             <StringItem index="1" value="Covid Dosis 1"/>
             <StringItem index="2" value="Covid Dosis 2"/>
             <StringItem index="3" value="Covid Dosis 3"/>
