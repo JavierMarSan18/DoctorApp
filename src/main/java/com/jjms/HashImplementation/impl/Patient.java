@@ -27,10 +27,6 @@ public class Patient {
         return vacunas;
     }
 
-    public void setVacunas(LinkedList<Vaccine> vacunas) {
-        this.vacunas = vacunas;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
