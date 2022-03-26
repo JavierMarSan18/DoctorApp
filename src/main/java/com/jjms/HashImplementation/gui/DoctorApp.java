@@ -196,8 +196,11 @@ public class DoctorApp extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        loadTable();
-        clean();
+        String cui = txtCui.getText();
+        if(cuiIsValid() && cuiExist(cui)){
+            loadTable();
+            clean();
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
@@ -235,22 +238,19 @@ public class DoctorApp extends javax.swing.JFrame {
     //Método para cargar los datos a la tabla
     private void loadTable(){
         String cui = txtCui.getText();
-        if(cuiIsValid() && cuiExist(cui)){
-            
-            Patient patient = patients.get(cui);
-            LinkedList<Vaccine> vaccines = patient.getVacunas();
-            
-            DefaultTableModel model = new DefaultTableModel();
-           
-            model.addColumn("CUI");
-            model.addColumn("Vacuna");
-            model.addColumn("Fecha");
-            
-            for(Vaccine v:vaccines){
-                model.addRow(new Object[]{cui,v.getVacuna(),v.getFecha()});
-            }
-            tbRegistros.setModel(model);
+        Patient patient = patients.get(cui);
+        LinkedList<Vaccine> vaccines = patient.getVacunas();
+
+        DefaultTableModel model = new DefaultTableModel();
+
+        model.addColumn("CUI");
+        model.addColumn("Vacuna");
+        model.addColumn("Fecha");
+
+        for(Vaccine v:vaccines){
+            model.addRow(new Object[]{cui,v.getVacuna(),v.getFecha()});
         }
+        tbRegistros.setModel(model);
     }
     
     //Limpia los campos del formulario
